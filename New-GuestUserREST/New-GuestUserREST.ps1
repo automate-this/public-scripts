@@ -112,7 +112,7 @@ $header = @{
 }
 $RestError = $null
 try {
-    $Users = Invoke-RestMethod -Method GET -Uri "$baseurl=$GuestUser" -Headers $header -SkipCertificateCheck -ErrorAction Continue -SkipHttpErrorCheck
+    $Users = Invoke-RestMethod -Method GET -Uri "$baseurl=$GuestUser" -Headers $header -ErrorAction Continue
 }
 catch {
     $RestError = $_
@@ -148,7 +148,7 @@ if (!$RestError -and !$Users) {
         }
 "@
     try {
-        Invoke-RestMethod -Method PATCH -Uri $baseurl -Headers $header -Body $body -SkipCertificateCheck
+        Invoke-RestMethod -Method PATCH -Uri $baseurl -Headers $header -Body $body
     }
     catch {
         $RestError = $_

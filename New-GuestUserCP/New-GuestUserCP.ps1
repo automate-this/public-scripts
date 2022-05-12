@@ -117,7 +117,7 @@ Function Get-AccessToken {
 "@    
     $RestError = $null
     try {
-        $AccessToken = Invoke-RestMethod -Method POST -Uri $baseurl -Headers $header -Body $body -SkipCertificateCheck -ErrorAction Continue -SkipHttpErrorCheck
+        $AccessToken = Invoke-RestMethod -Method POST -Uri $baseurl -Headers $header -Body $body -ErrorAction Continue
         return $AccessToken
     }
     catch {
