@@ -6,7 +6,7 @@ ForEach($f in (Get-MailboxFolderStatistics $targetmailbox | Where { $_.FolderPat
  $userlistArray = @()
  #Purge existing permsissions and set defaults
  ForEach($g in (Get-MailboxFolderPermission $fname | select User,AccessRights)) {
- if ($g.User.DisplayName -like "Standard" -Or $g.User.DisplayName -like "Anonym") {
+ if ($g.User.DisplayName -like "Standard" -Or $g.User.DisplayName -like "Anonym" -Or $g.User.DisplayName -like "Anonymous") {
    Set-MailboxFolderPermission $fname -User $g.User.DisplayName -AccessRights None
   }
   else {
